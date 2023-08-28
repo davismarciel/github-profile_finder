@@ -21,6 +21,7 @@ const Home = () => {
 
 		if(res.status === 404) {
 			setError(true);
+			setLoading(false);
 			return;
 		}
 
@@ -43,8 +44,8 @@ const Home = () => {
 	return (
 		<div>
 			<Search loadUser={loadUser} />
-			{loading && <p>Loading...</p>}
-			{user && <User {...user}/>}
+			{user && <User {...user}/> }
+			{loading && <div className="custom-loader"></div>}
 			{error && <Error />}
 		</div>
 	);

@@ -1,6 +1,6 @@
 const Error = () => {
 	return (
-		<p>User not found!</p>
+		<p className="error">User not found!</p>
 	);
 };
 
