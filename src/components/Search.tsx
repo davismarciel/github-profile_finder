@@ -5,11 +5,12 @@ import { useState, KeyboardEvent } from 'react';
 import classes from './Search.module.css';
 
 interface SearchProps {
-  loadUser: (userName: string) => Promise<void>
+  loadUser: (userName: string) => Promise<void>;
 }
 
 const Search = ({ loadUser }: SearchProps) => {
-	const [userName, setUserName] = useState(null);
+	const [userName, setUserName] = useState('');
+
 	const handleKeyDown = (e: KeyboardEvent) => {
 		if(e.key === 'Enter') {
 			loadUser(userName);
