@@ -14,7 +14,7 @@ const Home = () => {
 	const loadUser = async (userName: string) => {
 		setError(false);
 		setUser(null);
-
+		setLoading(true);
 		const res = await fetch(`https://api.github.com/users/${userName}`);
 
 		const data = await res.json();
@@ -35,6 +35,7 @@ const Home = () => {
 			following
 		};
 
+		setLoading(false);
 		setUser(userData);
 	};
 
@@ -42,6 +43,7 @@ const Home = () => {
 	return (
 		<div>
 			<Search loadUser={loadUser} />
+			{loading && <p>Loading...</p>}
 			{user && <User {...user}/>}
 			{error && <Error />}
 		</div>
