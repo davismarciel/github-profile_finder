@@ -1,6 +1,6 @@
 import { type UserProps } from '../types/user';
 
-import Search from '../components/Search';
+import Search from '../components/Search/Search';
 import User from '../components/User/User';
 import Error from '../components/Error/Error';
 
@@ -26,25 +26,26 @@ const Home = () => {
 		}
 
 		console.log(data);
-		const { avatar_url, login, location, followers, following } = data;
+
+		const { avatar_url, login, location, followers, following, html_url } = data;
 
 		const userData: UserProps = {
 			avatar_url,
 			login,
 			location,
 			followers,
-			following
+			following,
+			html_url
 		};
 
 		setLoading(false);
 		setUser(userData);
 	};
 
-
 	return (
 		<div>
 			<Search loadUser={loadUser} />
-			{user && <User {...user}/> }
+			{user && <User {...user}/>}
 			{loading && <div className="custom-loader"></div>}
 			{error && <Error />}
 		</div>

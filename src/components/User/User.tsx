@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import classes from './User.module.css';
 
-const User = ({login, avatar_url, followers, following, location}: UserProps) => {
+const User = ({login, avatar_url, followers, following, location, html_url}: UserProps) => {
 	return (
 		<div className={classes.user}>
 			<img src={avatar_url} alt={`Photo of ${login}`} />
@@ -27,7 +27,7 @@ const User = ({login, avatar_url, followers, following, location}: UserProps) =>
 					<p className={classes.number}>{following}</p>
 				</div>
 			</div>
-			<Link to={`/repos/${login}`}>Show the user best repositories</Link>
+			<Link to={`${html_url}`} target='_blank'>Show full profile on GitHub</Link>
 		</div>
 	);
 };

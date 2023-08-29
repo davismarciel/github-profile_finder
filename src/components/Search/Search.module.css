@@ -23,6 +23,7 @@
 .search_container button {
   border-radius: 3px;
   border: none;
+  outline: none;
   padding: .6rem;
   color: #2b3566;
 }
